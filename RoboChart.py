@@ -10,7 +10,6 @@ class RoboChart(QWidget):
 
         self.axis_percent = QValueAxis()
 
-
         self.axis_x = QValueAxis()
         self.axis_x.setTitleText("x-Achse")
         self.axis_x.setRange(-5, 105)
