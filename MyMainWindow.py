@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QMainWindow
-from TempChart import TempChart
+from RoboChart import RoboChart
 
 class MyMainWindow(QMainWindow):
     def __init__(self, parent=None):
@@ -7,4 +7,4 @@ class MyMainWindow(QMainWindow):
 
         self.setWindowTitle("QChartView")
 
-        self.setCentralWidget(TempChart(self))
+        self.setCentralWidget(RoboChart(self))

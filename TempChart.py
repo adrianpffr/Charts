@@ -46,6 +46,7 @@ class TempChart(QWidget):
 
         self.my_layout.addWidget(self.slider)
 
+
         ### Aufgabe 1
         # Ändern Sie den Zeitbereich der Zeitachse auf 0
         # bis 5 Minuten in der Zukunft. Dafür müssen Sie
@@ -59,7 +60,7 @@ class TempChart(QWidget):
 
         self.setLayout(self.my_layout)
 
-        self.series = QSplineSeries()
+        self.series = QLineSeries()
         self.chart.addSeries(self.series)
         self.series.setName("f(x) = x^2")
         self.series.attachAxis(self.axis_x)
@@ -74,12 +75,13 @@ class TempChart(QWidget):
 
 
     def sliderValueChanged(self, value):
-        self.value = value
-        self.drawChart()
+        #self.value = value
+        #self.drawChart()
+        current_time = QDateTime.currentDateTime()
+        self.axis_time.setMax(current_time)
+        self.series_2.append(current_time.toMSecsSinceEpoch(), value)
 
     def drawChart(self):
-        timer = QTimer()
-        timer.start()
         current_time = QDateTime.currentDateTime()
         self.axis_time.setMax(current_time)
         self.series_2.append(current_time.toMSecsSinceEpoch(), self.value)
